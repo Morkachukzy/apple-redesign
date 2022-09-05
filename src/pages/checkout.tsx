@@ -9,6 +9,9 @@ import CheckoutProduct from "../components/CheckoutProduct";
 import Header from "../components/Header";
 import { ChevronDownIcon } from "@heroicons/react/solid";
 import Currency from "react-currency-formatter";
+import { api } from "../utils/api-utils";
+import Stripe from "stripe";
+import getStripe from "../helpers/getStripe";
 type CartItemsInformation = Record<string, ProductInformation>;
 
 type CheckoutProps = {};
@@ -21,8 +24,31 @@ const Checkout: NextPage<CheckoutProps> = () => {
     useState<CartItemsInformation>({});
   const [isLoading, setIsLoading] = useState<boolean>(false);
 
-  const createCheckoutSession = () => {
+  const createCheckoutSession = async () => {
     setIsLoading(true);
+
+    const checkoutSession = await api.post<
+      { items: Product[] },
+      Stripe.Checkout.Session
+    >("checkout_sessions", { items: items });
+
+    // Internal Server Error
+    if ((checkoutSession as any).statusCode === 500) {
+      console.error((checkoutSession as any).message);
+      return;
+    }
+
+    const stripe = await getStripe();
+    const { error } = await stripe!.redirectToCheckout({
+      sessionId: checkoutSession.id,
+    });
+
+    // If `redirectToCheckout` fails due to a browser or network
+    // error, display the localized error message to your customer
+    // using `error.message`.
+    console.warn(error.message);
+
+    setIsLoading(false);
   };
 
   useEffect(() => {

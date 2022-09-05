@@ -8,7 +8,7 @@ const query = groq`*[_type == "product"] {
   ...
 }`;
 type Data = {
-  products: [Product];
+  products: Product[];
 };
 
 const handler = async (req: NextApiRequest, res: NextApiResponse<Data>) => {

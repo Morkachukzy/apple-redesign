@@ -8,7 +8,7 @@ const query = groq`*[_type == "category"] {
   ...
 }`;
 type Data = {
-  categories: [Category];
+  categories: Category[];
 };
 
 const handler = async (req: NextApiRequest, res: NextApiResponse<Data>) => {

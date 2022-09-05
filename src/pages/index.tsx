@@ -10,8 +10,8 @@ import Product from "../components/Product";
 import Cart from "../components/Cart";
 
 type HomeProps = {
-  categories: [Category];
-  products: [Product];
+  categories: Category[];
+  products: Product[];
 };
 const Home: NextPage<HomeProps> = ({ categories, products }) => {
   console.log(categories);
