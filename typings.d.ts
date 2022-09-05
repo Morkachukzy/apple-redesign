@@ -39,3 +39,8 @@ type Product = {
   };
   image: Image[];
 };
+
+type ProductInformation = {
+  details: Product;
+  quantity: number;
+};
