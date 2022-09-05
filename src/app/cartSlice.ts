@@ -2,6 +2,7 @@ import { createSlice } from "@reduxjs/toolkit";
 import type { PayloadAction } from "@reduxjs/toolkit";
 import Product from "../components/Product";
 import { RootState } from "./store";
+import { createSelector } from "reselect";
 
 export interface CartState {
   items: Product[];
@@ -45,9 +46,16 @@ export const cartSlice = createSlice({
 export const { addToCart, removeFromCart } = cartSlice.actions;
 
 // Selectors -> retrieving items in state to use in different components
-export const selectCartItems = (state: RootState) => state.cart.items;
+export const selectCartItems = ({ cart }: RootState) => cart.items;
+
 export const selectCartItemsWithId = (state: RootState, id: string) =>
   state.cart.items.filter((item: Product) => item._id === id);
+
+export const selectCartCount = createSelector(
+  [selectCartItems],
+  (items: Product[]) => items.length
+);
+
 export const selectCartTotal = (state: RootState) =>
   state.cart.items.reduce(
     (total: number, item: Product) => (total += item.price),
