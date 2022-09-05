@@ -78,7 +78,6 @@ const Home: NextPage<HomeProps> = ({ categories, products }) => {
                 {category.title}
               </Tab>
             ))}
-            //TODO: make less static
           </Tab.List>
           <Tab.Panels className="mx-auto max-w-fit pt-10 pb-24 sm:px-4">
             <Tab.Panel className="tabPanel">{showProducts("IPAD")}</Tab.Panel>
