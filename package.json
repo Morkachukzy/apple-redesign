@@ -14,12 +14,15 @@
     "@stripe/stripe-js": "^1.35.0",
     "@types/react-currency-formatter": "^1.1.4",
     "next": "latest",
+    "next-auth": "^4.10.3",
+    "next-auth-sanity": "^1.4.4",
     "next-sanity": "^0.8.4",
     "react": "18.1.0",
     "react-currency-formatter": "^1.1.0",
     "react-dom": "18.1.0",
     "react-hot-toast": "^2.3.0",
     "react-redux": "^8.0.2",
+    "react-responsive": "^9.0.0-beta.10",
     "stripe": "^10.7.0"
   },
   "devDependencies": {
