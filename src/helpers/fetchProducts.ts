@@ -1,10 +1,10 @@
-import { fetcher } from "../utils/fetcher";
+import { api } from "../utils/api-utils";
 
 type Data = {
-  products: [Product];
+  products: Product[];
 };
 
 export const fetchProducts = async () => {
-  const { products } = await fetcher<Data>("getProducts");
+  const { products } = await api.get<Data>("getProducts");
   return products;
 };
