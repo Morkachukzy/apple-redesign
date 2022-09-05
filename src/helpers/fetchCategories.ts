@@ -1,10 +1,10 @@
-import { fetcher } from "../utils/fetcher";
+import { api } from "../utils/api-utils";
 
 type Data = {
-  categories: [Category];
+  categories: Category[];
 };
 
 export const fetchCategories = async () => {
-  const { categories } = await fetcher<Data>("getCategories");
+  const { categories } = await api.get<Data>("getCategories");
   return categories;
 };
