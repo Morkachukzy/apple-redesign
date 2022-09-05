@@ -3,7 +3,10 @@ import type { PayloadAction } from "@reduxjs/toolkit";
 import Product from "../components/Product";
 import { RootState } from "./store";
 import { createSelector } from "reselect";
+<<<<<<< Updated upstream
 
+=======
+>>>>>>> Stashed changes
 export interface CartState {
   items: Product[];
 }
@@ -55,6 +58,7 @@ export const selectCartCount = createSelector(
   [selectCartItems],
   (items: Product[]) => items.length
 );
+
 
 export const selectCartTotal = (state: RootState) =>
   state.cart.items.reduce(
