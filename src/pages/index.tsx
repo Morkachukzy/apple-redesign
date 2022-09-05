@@ -7,6 +7,7 @@ import Hero from "../components/Hero";
 import { fetchCategories } from "../helpers/fetchCategories";
 import { fetchProducts } from "../helpers/fetchProducts";
 import Product from "../components/Product";
+import Cart from "../components/Cart";
 
 type HomeProps = {
   categories: [Category];
@@ -49,6 +50,8 @@ const Home: NextPage<HomeProps> = ({ categories, products }) => {
       </Head>
 
       <Header />
+
+      <Cart />
 
       <main className="bg- relative h-[200vh] bg-[#E7ECEE]">
         <Hero />
