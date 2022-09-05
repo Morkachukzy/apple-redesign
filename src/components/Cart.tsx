@@ -3,7 +3,7 @@ import Link from "next/link";
 import { useSelector } from "react-redux";
 import { selectCartCount } from "../app/cartSlice";
 
-function Cart() {
+const Cart = () => {
   const cartCount = useSelector(selectCartCount);
 
   if (cartCount === 0) return null;
@@ -20,6 +20,6 @@ function Cart() {
       </div>
     </Link>
   );
-}
+};
 
 export default Cart;
