@@ -19,7 +19,7 @@ const Home: NextPage<HomeProps> = ({ categories, products, session }) => {
   console.log(categories);
   console.log(products);
 
-  //TODO: Use CategoryType in the actual Category Type as _type
+  //TODO: Use CategoryType in the actual Category Type as _type -to be implemented
   const showProducts = (category: CategoryType) => {
     let categoryNumber: number;
     switch (category) {
