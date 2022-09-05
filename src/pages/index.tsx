@@ -8,12 +8,14 @@ import { fetchCategories } from "../helpers/fetchCategories";
 import { fetchProducts } from "../helpers/fetchProducts";
 import Product from "../components/Product";
 import Cart from "../components/Cart";
-
+import { getSession } from "next-auth/react";
+import type { Session } from "next-auth";
 type HomeProps = {
   categories: Category[];
   products: Product[];
+  session: Session | null;
 };
-const Home: NextPage<HomeProps> = ({ categories, products }) => {
+const Home: NextPage<HomeProps> = ({ categories, products, session }) => {
   console.log(categories);
   console.log(products);
 
@@ -98,14 +100,17 @@ const Home: NextPage<HomeProps> = ({ categories, products }) => {
 
 export default Home;
 
-export const getServerSideProps: GetServerSideProps<HomeProps> = async () => {
+export const getServerSideProps: GetServerSideProps<HomeProps> = async (
+  context
+) => {
   const categories = await fetchCategories();
   const products = await fetchProducts();
-
+  const session = await getSession(context);
   return {
     props: {
       categories,
       products,
+      session,
     },
   };
 };
