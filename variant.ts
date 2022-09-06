@@ -61,13 +61,15 @@ export const staggerContainer: Variants = {
 
 export const springIn: Variants = {
   initial: {
-    y: 1000,
+    y: 800,
+    opacity: 0,
   },
   animate: {
     y: 0,
+    opacity: 1,
     transition: {
-      // delay: 0.6,
-      duration: 0.3,
+      delay: 0.6,
+      duration: 0.4,
       type: "spring",
     },
   },

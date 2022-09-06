@@ -28,6 +28,8 @@ const Hero = forwardRef<HTMLElement>(() => {
       </div>
       <motion.div
         variants={springIn}
+        initial="initial"
+        animate="animate"
         className="relative hidden h-[450px] w-[450px] transition-all duration-500 md:inline lg:h-[650px] lg:w-[600px]"
       >
         <motion.div
