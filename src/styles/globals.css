@@ -32,7 +32,12 @@
     background: linear-gradient(to right, #93c5fd, #8b5cf6) left bottom
       no-repeat;
   }
-
+  .bg-primary-dark {
+    background-color: #35383c;
+  }
+  .bg-primary-dark-200 {
+    background-color: #35383c95;
+  }
   .borderGradient {
     text-align: center;
     padding-bottom: 5px;
