@@ -11,11 +11,18 @@ import Cart from "../components/Cart";
 import { getSession } from "next-auth/react";
 import type { Session } from "next-auth";
 import Products from "../components/Products";
+
+import { motion } from "framer-motion";
+import { slideIn, staggerContainer, scaleIn } from "../../variant";
+
+const MotionHeader = motion(Header);
+const MotionHero = motion(Hero);
 type HomeProps = {
   categories: Category[];
   products: Product[];
   session: Session | null;
 };
+
 const Home: NextPage<HomeProps> = ({ categories, products, session }) => {
   console.log(categories);
   console.log(products);
@@ -46,18 +53,24 @@ const Home: NextPage<HomeProps> = ({ categories, products, session }) => {
   };
 
   return (
-    <div className="">
+    <div className="bg-[#EAECED]">
       <Head>
         <title>Apple Redesign</title>
         <link rel="icon" href="/favicon.ico" />
       </Head>
-
-      <Header />
-
+      <MotionHeader
+        variants={slideIn("DOWN")}
+        initial="initial"
+        animate="animate"
+      />
       <Cart />
 
-      <main className="bg- relative h-[200vh] bg-[#EAECED]">
-        <Hero />
+      <main className="relative h-[200vh] bg-[#EAECED]">
+        <MotionHero
+          variants={staggerContainer}
+          initial="initial"
+          animate="animate"
+        />
       </main>
 
       <Products categories={categories} showProducts={showProducts} />
