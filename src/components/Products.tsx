@@ -25,7 +25,7 @@ const Products: NextPage<ProductsProps> = ({
               key={category._id}
               id={category._id}
               className={({ selected }) =>
-                ` whitespace-nowrap rounded-none rounded-t-lg py-3 px-5 text-sm font-light outline-none transition duration-300 hover:text-white md:py-4 md:px-6 md:text-base ${
+                ` whitespace-nowrap rounded-none rounded-t-lg py-3 px-5 text-sm font-light outline-none hover:text-white md:py-4 md:px-6 md:text-base ${
                   selected
                     ? "borderGradient bg-[#35383C] text-white"
                     : "border-b-2 border-[#35383C] text-[#747474]"

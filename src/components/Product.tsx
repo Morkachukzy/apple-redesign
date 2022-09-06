@@ -4,7 +4,6 @@ import { urlFor } from "../../sanity";
 import { ShoppingCartIcon } from "@heroicons/react/outline";
 import { addToCart } from "../app/cartSlice";
 import toast from "react-hot-toast";
-
 type ProductProps = {
   product: Product;
 };
