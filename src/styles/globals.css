@@ -28,10 +28,15 @@
       hover:before:scale-x-100;
   }
 
+  .bg-gradient-primary {
+    background: linear-gradient(to right, #93c5fd, #8b5cf6) left bottom
+      no-repeat;
+  }
+
   .borderGradient {
     text-align: center;
     padding-bottom: 5px;
-    background: linear-gradient(to right, #ec4899, #8b5cf6) left bottom
+    background: linear-gradient(to right, #93c5fd, #8b5cf6) left bottom
       no-repeat;
     background-size: 100% 2px;
   }

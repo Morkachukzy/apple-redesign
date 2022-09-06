@@ -36,7 +36,7 @@ const Header = () => {
         <Link href="/checkout">
           <div className="relative cursor-pointer">
             {cartCount > 0 && (
-              <span className="absolute -right-1 -top-1 z-50 flex h-4 w-4 items-center justify-center rounded-full bg-gradient-to-r from-pink-500 to-violet-500 text-[10px] text-white">
+              <span className="bg-gradient-primary absolute -right-1 -top-1 z-50 flex h-4 w-4 items-center justify-center rounded-full text-[10px] text-white">
                 {cartCount}
               </span>
             )}

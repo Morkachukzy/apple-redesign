@@ -55,7 +55,7 @@ const Home: NextPage<HomeProps> = ({ categories, products, session }) => {
 
       <Cart />
 
-      <main className="bg- relative h-[200vh] bg-[#E7ECEE]">
+      <main className="bg- relative h-[200vh] bg-[#EAECED]">
         <Hero />
       </main>
 
