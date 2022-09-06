@@ -36,7 +36,7 @@ const Product = ({ product }: ProductProps) => {
         </div>
 
         <div
-          className="flex h-16 w-16 flex-shrink-0 cursor-pointer items-center justify-center rounded-full bg-gradient-to-r from-pink-500 to-violet-500 md:h-[70px] md:w-[70px]"
+          className="bg-gradient-primary flex h-16 w-16 flex-shrink-0 cursor-pointer items-center justify-center rounded-full md:h-[70px] md:w-[70px]"
           onClick={addItemToCart}
         >
           <ShoppingCartIcon className="h-8 w-8 text-white" />
