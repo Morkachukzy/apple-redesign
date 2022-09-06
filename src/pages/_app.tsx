@@ -10,7 +10,7 @@ function MyApp({ Component, pageProps: { session, ...pageProps } }: AppProps) {
     <SessionProvider session={session}>
       <Provider store={store}>
         <Toaster />
-        <Component {...pageProps} />;
+        <Component {...pageProps} />
       </Provider>
     </SessionProvider>
   );

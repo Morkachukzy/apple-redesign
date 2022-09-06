@@ -1,5 +1,6 @@
 import Image from "next/image";
 import Link from "next/link";
+import { forwardRef } from "react";
 import {
   SearchIcon,
   ShoppingBagIcon,
@@ -9,11 +10,15 @@ import { useSelector } from "react-redux";
 import { selectCartCount } from "../app/cartSlice";
 import { signIn, signOut, useSession } from "next-auth/react";
 
-const Header = () => {
+type HeaderProps = {};
+const Header = forwardRef<HTMLHeadElement>((props, ref) => {
   const cartCount = useSelector(selectCartCount);
   const { data: session } = useSession();
   return (
-    <header className="sticky top-0 z-30 flex w-full items-center justify-between bg-[#E7ECEE] p-4">
+    <header
+      ref={ref}
+      className="sticky top-0 z-30 flex w-full items-center justify-between bg-[#E7ECEE] p-4"
+    >
       <div className="flex items-center justify-center md:flex md:w-1/5">
         <Link href="/">
           <div className="relative h-10 w-5 cursor-pointer opacity-75 transition hover:opacity-100">
@@ -36,7 +41,7 @@ const Header = () => {
         <Link href="/checkout">
           <div className="relative cursor-pointer">
             {cartCount > 0 && (
-              <span className="absolute -right-1 -top-1 z-50 flex h-4 w-4 items-center justify-center rounded-full bg-gradient-to-r from-pink-500 to-violet-500 text-[10px] text-white">
+              <span className="bg-gradient-primary absolute -right-1 -top-1 z-50 flex h-4 w-4 items-center justify-center rounded-full text-[10px] text-white">
                 {cartCount}
               </span>
             )}
@@ -61,6 +66,6 @@ const Header = () => {
       </div>
     </header>
   );
-};
+});
 
 export default Header;
