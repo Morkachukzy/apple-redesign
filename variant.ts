@@ -1,4 +1,4 @@
-import { Variants } from "framer-motion";
+import { Variants, Variant } from "framer-motion";
 type UpDirection = "UP" | "up";
 type DownDirection = "DOWN" | "down";
 type Direction = UpDirection | DownDirection;
@@ -36,14 +36,14 @@ export const fadeIn: Variants = {
 
 export const scaleIn: Variants = {
   initial: {
-    // opacity: 0,
-    scale: 0.8,
+    opacity: 0,
+    scale: 0.5,
   },
   animate: {
-    // opacity: 1,
+    opacity: 1,
     scale: 1,
     transition: {
-      duration: 0.9,
+      duration: 0.3,
       ease: "easeInOut",
     },
   },
@@ -88,3 +88,11 @@ export const hover: Variants = {
     },
   },
 };
+
+export const scrollTrigger = ({
+  animate,
+  ...otherVariants
+}: Variants): Variants => ({
+  ...otherVariants,
+  whileInView: animate,
+});

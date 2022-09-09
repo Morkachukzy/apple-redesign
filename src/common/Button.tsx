@@ -16,7 +16,7 @@ const Button = ({
 }: ButtonProps) => {
   return (
     <button
-      className={`ease group relative z-30 box-border inline-flex ${
+      className={`ease group relative box-border inline-flex ${
         width ? width : "w-auto"
       } ${padding} bg-gradient-primary cursor-pointer items-center justify-center overflow-hidden font-bold text-white transition-all duration-300 focus:outline-none`}
       onClick={onClick}
