@@ -1,10 +1,9 @@
 import { ShoppingBagIcon } from "@heroicons/react/outline";
-import { motion } from "framer-motion";
 import Link from "next/link";
 import { forwardRef } from "react";
 import { useSelector } from "react-redux";
 import { selectCartCount } from "../app/cartSlice";
-
+import { motion, AnimatePresence } from "framer-motion";
 const Cart = forwardRef<HTMLSpanElement>((props, ref) => {
   const cartCount = useSelector(selectCartCount);
 
@@ -12,7 +11,15 @@ const Cart = forwardRef<HTMLSpanElement>((props, ref) => {
 
   return (
     <Link href="/checkout">
-      <div className="fixed bottom-10 right-10 z-50 flex h-16 w-16 cursor-pointer items-center justify-center rounded-full bg-gray-300">
+      <motion.div
+        animate={{ scale: [0.5, 1.2, 1], opacity: 1 }}
+        transition={{
+          type: "spring",
+          stiffness: 70,
+          duration: 0.45,
+        }}
+        className="fixed bottom-10 right-10 z-50 flex h-16 w-16 cursor-pointer items-center justify-center rounded-full bg-gray-300"
+      >
         {cartCount > 0 && (
           <motion.span
             ref={ref}
@@ -22,7 +29,7 @@ const Cart = forwardRef<HTMLSpanElement>((props, ref) => {
           </motion.span>
         )}
         <ShoppingBagIcon className="headerIcon h-8 w-8" />
-      </div>
+      </motion.div>
     </Link>
   );
 });
