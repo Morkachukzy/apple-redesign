@@ -39,7 +39,9 @@ const FeatureContainer = forwardRef<HTMLElement, FeatureProps>(
         ref={ref}
         className={`${
           position == undefined ? "" : position
-        } top-0 mx-auto flex md:flex-row ${heightStyle} max-w-[1500px] items-center justify-between overflow-hidden px-12 md:px-20`}
+        } top-0 mx-auto flex  md:flex-row ${
+          heightStyle || "h-screen"
+        } max-w-[1500px] items-center justify-between overflow-hidden px-12 md:px-20`}
       >
         {children}
       </section>
