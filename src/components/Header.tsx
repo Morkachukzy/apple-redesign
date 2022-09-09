@@ -17,7 +17,7 @@ const Header = forwardRef<HTMLHeadElement>((props, ref) => {
   return (
     <header
       ref={ref}
-      className="sticky top-0 z-30 flex w-full items-center justify-between bg-[#E7ECEE] p-4"
+      className="sticky top-0 z-30 flex w-full items-center justify-between bg-[#E7ECEE] px-8 py-4 md:py-10"
     >
       <div className="flex items-center justify-center md:flex md:w-1/5">
         <Link href="/">
@@ -30,7 +30,7 @@ const Header = forwardRef<HTMLHeadElement>((props, ref) => {
           </div>
         </Link>
       </div>
-      <div className="hidden flex-1 items-center justify-center space-x-8 md:flex">
+      <div className="hidden flex-1 items-center justify-center space-x-10 text-lg md:flex">
         <a className="headerLink">Products</a>
         <a className="headerLink">Explore</a>
         <a className="headerLink">Support</a>
